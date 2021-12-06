@@ -3,25 +3,49 @@
     <figure class="cover">
       <img :src="cover" alt="" class="cover" />
     </figure>
+
     <header class="header">
       <img class="pfp" :src="pfp" alt="" />
-      <h1 class="name">John Doe</h1>
-      <h3 class="friend-count">567 friends</h3>
+      <template v-if="user.info">
+        <h1 class="name">{{ user.info.name }}</h1>
+        <h3 class="friend-count">{{ user.info.friends }} friends</h3>
+      </template>
+      <p v-else>Loading...</p>
     </header>
+
+    <h1 style="text-align: center; margin: 4rem 0">Post form here!</h1>
+
+    <template v-if="user.posts">
+      <Post
+        v-for="post in user.posts"
+        :key="post.id"
+        :author="post.author"
+        :content="post.content"
+        :date="new Date(post.date).toDateString()"
+      />
+    </template>
   </section>
 </template>
 
 <script>
 import Cover from "../assets/cover.jpg";
 import Pfp from "../assets/pfp.png";
+import Post from "./Post.vue";
 
 export default {
+  components: { Post },
   name: "Profile",
   data() {
     return {
       cover: Cover,
       pfp: Pfp,
+      user: {},
     };
+  },
+  async mounted() {
+    const res = await fetch("http://localhost:3000/user");
+    const data = await res.json();
+    this.user = data;
   },
 };
 </script>
@@ -58,7 +82,8 @@ export default {
   align-items: center;
   background-color: #1a1a1a;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #303030;
+  border: 1px solid #303030;
+  border-top: none;
 }
 
 .pfp {

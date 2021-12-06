@@ -1,0 +1,30 @@
+{
+  "user": {
+    "info": {
+      "name": "John Doe",
+      "bio": "Hello!",
+      "location": "Birmingham, UK",
+      "friends": 567
+    },
+    "posts": [
+      {
+        "id": 2,
+        "date": "2021-12-06T13:37:27+00:00",
+        "content": "Lorem ipsum dolor sit amet.",
+        "author": "John Doe"
+      },
+      {
+        "id": 1,
+        "date": "2021-12-02T13:37:27+00:00",
+        "content": "Consectetur adipisicing elit.",
+        "author": "John Doe"
+      },
+      {
+        "id": 0,
+        "date": "2021-12-01T13:37:27+00:00",
+        "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "author": "John Doe"
+      }
+    ]
+  }
+}

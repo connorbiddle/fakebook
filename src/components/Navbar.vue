@@ -12,6 +12,6 @@ export default {
 .navbar {
   padding: 1rem;
   background: #1a1a1a;
-  border-bottom: 1px solid #303030;
+  border-bottom: 1px solid #3a3a3a;
 }
 </style>
