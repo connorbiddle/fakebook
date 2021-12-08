@@ -8,20 +8,20 @@
     },
     "posts": [
       {
-        "id": 2,
+        "id": "2e935d2e-c796-4fe1-99e9-a2aabf470a23",
         "date": "2021-12-06T13:37:27+00:00",
         "content": "Lorem ipsum dolor sit amet.",
         "author": "John Doe"
       },
       {
-        "id": 1,
-        "date": "2021-12-02T13:37:27+00:00",
+        "id": "dfeea971-e3c9-4994-9e54-6aad89322e0c",
+        "date": "2021-11-02T10:15:27+00:00",
         "content": "Consectetur adipisicing elit.",
         "author": "John Doe"
       },
       {
-        "id": 0,
-        "date": "2021-12-01T13:37:27+00:00",
+        "id": "8ba76f19-3d0d-4d57-9ff9-09859926bea2",
+        "date": "2020-12-01T21:12:27+00:00",
         "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
         "author": "John Doe"
       }

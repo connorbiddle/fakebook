@@ -6,9 +6,10 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import Profile from "./components/Profile.vue";
+
 export default {
-  components: { Navbar, Profile },
   name: "App",
+  components: { Navbar, Profile },
 };
 </script>
 
@@ -29,5 +30,16 @@ body {
 img {
   max-width: 100%;
   margin-bottom: -4px;
+}
+
+input {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 </style>

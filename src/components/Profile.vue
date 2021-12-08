@@ -13,17 +13,20 @@
       <p v-else>Loading...</p>
     </header>
 
-    <h1 style="text-align: center; margin: 4rem 0">Post form here!</h1>
-
-    <template v-if="user.posts">
+    <div class="container" v-if="user.posts && user.info">
+      <PostForm
+        :afterSubmit="fetchProfile"
+        :user="user"
+        :refresh="fetchProfile"
+      />
       <Post
         v-for="post in user.posts"
         :key="post.id"
         :author="post.author"
         :content="post.content"
-        :date="new Date(post.date).toDateString()"
+        :date="formatDate(post.date)"
       />
-    </template>
+    </div>
   </section>
 </template>
 
@@ -31,21 +34,29 @@
 import Cover from "../assets/cover.jpg";
 import Pfp from "../assets/pfp.png";
 import Post from "./Post.vue";
+import PostForm from "./PostForm.vue";
+import formatDate from "../formatDate";
 
 export default {
-  components: { Post },
+  components: { Post, PostForm },
   name: "Profile",
   data() {
     return {
       cover: Cover,
       pfp: Pfp,
       user: {},
+      formatDate,
     };
   },
-  async mounted() {
-    const res = await fetch("http://localhost:3000/user");
-    const data = await res.json();
-    this.user = data;
+  mounted() {
+    this.fetchProfile();
+  },
+  methods: {
+    async fetchProfile() {
+      const res = await fetch("http://localhost:3000/user");
+      const data = await res.json();
+      this.user = data;
+    },
   },
 };
 </script>

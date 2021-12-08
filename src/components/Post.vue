@@ -33,8 +33,7 @@ export default {
 
 <style scoped>
 .post {
-  max-width: 500px;
-  margin: 1rem auto;
+  margin: 1rem 0;
   padding: 1rem;
   background-color: #1a1a1a;
   border-radius: 5px;
