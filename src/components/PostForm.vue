@@ -6,6 +6,9 @@
       v-model="post"
       @change="onChange"
     />
+    <button type="submit">
+      <i class="fas fa-arrow-circle-right"></i>
+    </button>
   </form>
 </template>
 
@@ -16,7 +19,6 @@ export default {
   name: "PostForm",
   props: {
     refresh: Function,
-    user: Object,
   },
   data() {
     return {
@@ -27,20 +29,17 @@ export default {
     async onSubmit() {
       const post = {
         id: uuid(),
-        content: this.post,
-        author: this.user.info.name,
+        content: this.post.trim(),
+        author: "John Doe",
         date: new Date().toISOString(),
       };
 
-      const newPosts = [post, ...this.user.posts];
+      if (!post.content) return;
 
-      await fetch("http://localhost:3000/user", {
-        method: "PUT",
+      await fetch("http://localhost:3000/posts", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...this.user,
-          posts: newPosts,
-        }),
+        body: JSON.stringify(post),
       });
 
       this.post = "";
@@ -52,16 +51,32 @@ export default {
 
 <style scoped>
 .post-form {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+  border-bottom: 1px solid #303030;
+  display: flex;
+  align-items: center;
 }
 
 .post-form input {
-  background-color: #1a1a1a;
-  border: 1px solid #303030;
-  border-radius: 5px;
-  padding: 0.75rem;
   width: 100%;
   font-size: 1rem;
   color: #fff;
+  background-color: transparent;
+  border: none;
+  padding: 0.75rem 0;
+}
+
+.post-form button {
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.post-form button:hover {
+  opacity: 1;
 }
 </style>

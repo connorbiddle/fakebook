@@ -1,30 +1,22 @@
 {
-  "user": {
-    "info": {
-      "name": "John Doe",
-      "bio": "Hello!",
-      "location": "Birmingham, UK",
-      "friends": 567
+  "posts": [
+    {
+      "id": "883ef437-3383-4e38-9264-5599ad736010",
+      "content": "testseatfdg",
+      "author": "John Doe",
+      "date": "2021-12-21T19:16:33.216Z"
     },
-    "posts": [
-      {
-        "id": "2e935d2e-c796-4fe1-99e9-a2aabf470a23",
-        "date": "2021-12-06T13:37:27+00:00",
-        "content": "Lorem ipsum dolor sit amet.",
-        "author": "John Doe"
-      },
-      {
-        "id": "dfeea971-e3c9-4994-9e54-6aad89322e0c",
-        "date": "2021-11-02T10:15:27+00:00",
-        "content": "Consectetur adipisicing elit.",
-        "author": "John Doe"
-      },
-      {
-        "id": "8ba76f19-3d0d-4d57-9ff9-09859926bea2",
-        "date": "2020-12-01T21:12:27+00:00",
-        "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-        "author": "John Doe"
-      }
-    ]
-  }
+    {
+      "id": "928b4835-4699-4e87-93e7-9116d4cfff67",
+      "content": "adg;jdgfh",
+      "author": "John Doe",
+      "date": "2021-12-21T19:21:14.690Z"
+    },
+    {
+      "id": "f08c2e05-6418-4ec3-8fa2-64479358b703",
+      "content": "adfgdfgh",
+      "author": "John Doe",
+      "date": "2021-12-21T19:21:17.113Z"
+    }
+  ]
 }

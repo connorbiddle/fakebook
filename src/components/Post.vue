@@ -3,11 +3,14 @@
     <header class="header">
       <img :src="pfp" alt="" />
       <div>
-        <h1 class="author">{{ author }}</h1>
+        <h1 class="author">John Doe</h1>
         <span class="date">
           {{ date }}
         </span>
       </div>
+      <button class="delete" @click="deletePost">
+        <i class="fas fa-trash-alt"></i>
+      </button>
     </header>
     <p>{{ content }}</p>
   </article>
@@ -19,7 +22,7 @@ import Pfp from "../assets/pfp.png";
 export default {
   name: "Post",
   props: {
-    author: String,
+    id: String,
     content: String,
     date: String,
   },
@@ -27,6 +30,11 @@ export default {
     return {
       pfp: Pfp,
     };
+  },
+  methods: {
+    async deletePost() {
+      //
+    },
   },
 };
 </script>
@@ -44,6 +52,7 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
+  position: relative;
 }
 
 .header img {
@@ -59,5 +68,22 @@ export default {
 .header .date {
   font-size: 0.85rem;
   color: #a8a8a8;
+}
+
+.header .delete {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: #bb4c4c;
+  border: none;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.post:hover .header .delete {
+  opacity: 1;
 }
 </style>

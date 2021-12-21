@@ -6,26 +6,24 @@
 
     <header class="header">
       <img class="pfp" :src="pfp" alt="" />
-      <template v-if="user.info">
-        <h1 class="name">{{ user.info.name }}</h1>
-        <h3 class="friend-count">{{ user.info.friends }} friends</h3>
-      </template>
-      <p v-else>Loading...</p>
+      <h1 class="name">John Doe</h1>
+      <h3 class="friend-count">567 friends</h3>
     </header>
 
-    <div class="container" v-if="user.posts && user.info">
-      <PostForm
-        :afterSubmit="fetchProfile"
-        :user="user"
-        :refresh="fetchProfile"
-      />
-      <Post
-        v-for="post in user.posts"
+    <div class="container" v-if="posts">
+      <PostForm :afterSubmit="fetchPosts" :refresh="fetchPosts" />
+      <transition
+        v-for="post in getOrderedPosts()"
         :key="post.id"
-        :author="post.author"
-        :content="post.content"
-        :date="formatDate(post.date)"
-      />
+        name="fade"
+        appear
+      >
+        <Post
+          :id="post.id"
+          :content="post.content"
+          :date="formatDate(post.date)"
+        />
+      </transition>
     </div>
   </section>
 </template>
@@ -44,18 +42,24 @@ export default {
     return {
       cover: Cover,
       pfp: Pfp,
-      user: {},
+      posts: [],
       formatDate,
     };
   },
   mounted() {
-    this.fetchProfile();
+    this.fetchPosts();
   },
   methods: {
-    async fetchProfile() {
-      const res = await fetch("http://localhost:3000/user");
+    async fetchPosts() {
+      const res = await fetch("http://localhost:3000/posts");
       const data = await res.json();
-      this.user = data;
+
+      this.posts = data;
+    },
+    getOrderedPosts() {
+      return this.posts.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
     },
   },
 };
@@ -115,5 +119,14 @@ export default {
 .friend-count {
   color: #808080;
   font-weight: 600;
+}
+
+.fade-enter-active {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(0.5rem);
 }
 </style>
