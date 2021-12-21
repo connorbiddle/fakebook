@@ -25,6 +25,7 @@ export default {
     id: String,
     content: String,
     date: String,
+    refresh: Function,
   },
   data() {
     return {
@@ -33,7 +34,10 @@ export default {
   },
   methods: {
     async deletePost() {
-      //
+      await fetch(`http://localhost:3000/posts/${this.id}`, {
+        method: "DELETE",
+      });
+      this.refresh();
     },
   },
 };

@@ -22,6 +22,7 @@
           :id="post.id"
           :content="post.content"
           :date="formatDate(post.date)"
+          :refresh="fetchPosts"
         />
       </transition>
     </div>
