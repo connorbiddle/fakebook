@@ -1,28 +1,22 @@
 {
   "posts": [
     {
-      "id": "2a7c4cac-7f3c-464b-90ff-331603646b49",
+      "id": "0011d262-99ec-4a98-b3f9-319b6f9c3923",
       "content": "Test 1",
       "author": "John Doe",
-      "date": "2021-12-21T19:54:27.284Z"
+      "date": "2021-12-29T16:16:19.210Z"
     },
     {
-      "id": "2a2e2836-0ad2-42eb-88bc-81f46a74e212",
+      "id": "06e8a028-475d-4a47-b213-04657976e904",
       "content": "Test 2",
       "author": "John Doe",
-      "date": "2021-12-21T19:54:28.708Z"
+      "date": "2021-12-29T16:16:20.250Z"
     },
     {
-      "id": "4eaa9495-ec7a-43f6-a01e-b3752e7865e3",
+      "id": "5d54a034-badc-42ca-a904-66d618c43e4c",
       "content": "Test 3",
       "author": "John Doe",
-      "date": "2021-12-21T19:54:30.219Z"
-    },
-    {
-      "id": "00f8415b-e8c4-493f-856e-94468b8973fb",
-      "content": "Test 4",
-      "author": "John Doe",
-      "date": "2021-12-21T19:54:32.188Z"
+      "date": "2021-12-29T16:16:21.297Z"
     }
   ]
 }

@@ -10,7 +10,7 @@
       <h3 class="friend-count">567 friends</h3>
     </header>
 
-    <div class="container" v-if="posts">
+    <div class="container" v-if="status === 'success'">
       <PostForm :afterSubmit="fetchPosts" :refresh="fetchPosts" />
       <transition
         v-for="post in getOrderedPosts()"
@@ -26,12 +26,21 @@
         />
       </transition>
     </div>
+
+    <div class="container loading" v-else-if="status === 'loading'">
+      <img :src="loading" alt="" />
+    </div>
+
+    <div class="container error" v-else-if="status === 'error'">
+      <p>Couldn't fetch posts! Use <code>npm run db</code> then refresh.</p>
+    </div>
   </section>
 </template>
 
 <script>
 import Cover from "../assets/cover.jpg";
 import Pfp from "../assets/pfp.png";
+import Loading from "../assets/loading.svg";
 import Post from "./Post.vue";
 import PostForm from "./PostForm.vue";
 import formatDate from "../formatDate";
@@ -41,8 +50,10 @@ export default {
   name: "Profile",
   data() {
     return {
+      status: "loading",
       cover: Cover,
       pfp: Pfp,
+      loading: Loading,
       posts: [],
       formatDate,
     };
@@ -52,10 +63,15 @@ export default {
   },
   methods: {
     async fetchPosts() {
-      const res = await fetch("http://localhost:3000/posts");
-      const data = await res.json();
-
-      this.posts = data;
+      try {
+        const res = await fetch("http://localhost:3000/posts");
+        const data = await res.json();
+        this.posts = data;
+        this.status = "success";
+      } catch (e) {
+        this.status = "error";
+        console.log(e);
+      }
     },
     getOrderedPosts() {
       return this.posts.sort((a, b) => {
@@ -129,5 +145,30 @@ export default {
 .fade-enter-from {
   opacity: 0;
   transform: translateY(0.5rem);
+}
+
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.loading img {
+  animation: loading linear 0.8s infinite;
+  width: 32px;
+}
+.error code {
+  background: #2c2c2c;
+  padding: 0.2em;
+  border-radius: 5px;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
