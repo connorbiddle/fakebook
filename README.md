@@ -1,24 +1,13 @@
-# fakebook
+## A mock social media profile built on Vue.
 
-## Project setup
-```
-npm install
-```
+This app was built to demonstrate the interaction between a frontend and a REST API.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Posts are stored in a JSON database which the client-side app interacts with through the Fetch API.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### To run this app:
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm run db`
+4. In a separate terminal, run `npm run serve`
+5. Open the Vue app URL in the browser (e.g. http://localhost:8080)
