@@ -1,22 +1,16 @@
 {
   "posts": [
     {
-      "id": "0011d262-99ec-4a98-b3f9-319b6f9c3923",
-      "content": "Test 1",
+      "id": "01e93e34-dd0c-44d2-9bd1-ad3f653c4db5",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum molestias explicabo perferendis repellendus temporibus facere dolorem dignissimos, autem quod.",
       "author": "John Doe",
-      "date": "2021-12-29T16:16:19.210Z"
+      "date": "2021-12-31T17:19:42.115Z"
     },
     {
-      "id": "06e8a028-475d-4a47-b213-04657976e904",
-      "content": "Test 2",
+      "id": "41ca1641-b54f-48b3-a58f-e5722075fd84",
+      "content": "Asperiores ipsa eos consectetur?",
       "author": "John Doe",
-      "date": "2021-12-29T16:16:20.250Z"
-    },
-    {
-      "id": "5d54a034-badc-42ca-a904-66d618c43e4c",
-      "content": "Test 3",
-      "author": "John Doe",
-      "date": "2021-12-29T16:16:21.297Z"
+      "date": "2021-12-31T17:20:18.029Z"
     }
   ]
 }

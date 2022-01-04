@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">Fakebook</nav>
+  <nav class="navbar"></nav>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
 
 <style>
 .navbar {
-  padding: 1rem;
+  height: 3rem;
   background: #1a1a1a;
   border-bottom: 1px solid #3a3a3a;
 }
